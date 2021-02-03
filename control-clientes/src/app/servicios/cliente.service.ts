@@ -14,5 +14,17 @@ export class ClienteServicio {
     clientes!: Observable<Cliente []>;
     cliente!: Observable<Cliente>;
 
-   
+    getClientes(): Observable<Cliente[]>{
+        //Obtener los clientes
+        this.clientes = this.clientesColeccion.snapshotChanges().pipe(
+            map( cambios => {
+                return cambios.map( accion => {
+                    const datos = accion.payload.doc.data() as Cliente;
+                    datos.id = accion.payload.doc.id;
+                    return datos;
+                })
+            })
+        );
+        return this.clientes;
+    }
 }
