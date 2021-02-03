@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabeceroComponent } from './componentes/cabecero/cabecero.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
+import { ClientesComponent } from './componentes/clientes/clientes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceroComponent,
-    TableroComponent
+    TableroComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,
