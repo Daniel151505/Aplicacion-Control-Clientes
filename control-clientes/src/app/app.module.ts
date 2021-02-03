@@ -8,6 +8,7 @@ import { TableroComponent } from './componentes/tablero/tablero.component';
 import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { EditarClienteComponent } from './componentes/editar-cliente/editar-cliente.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './componentes/login/login.component';
     TableroComponent,
     ClientesComponent,
     EditarClienteComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
