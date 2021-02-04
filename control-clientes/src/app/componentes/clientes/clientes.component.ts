@@ -48,6 +48,7 @@ export class ClientesComponent implements OnInit {
     }
     else{
       //Agregar el nuevo Cliente
+      this.clienteServicio.agregarCliente(value);
     }
   }
 
