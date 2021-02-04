@@ -27,4 +27,9 @@ export class ClienteServicio {
         );
         return this.clientes;
     }
+
+    agregarCliente(cliente: Cliente){
+        this.clientesColeccion.add(cliente)
+    }
+
 }
