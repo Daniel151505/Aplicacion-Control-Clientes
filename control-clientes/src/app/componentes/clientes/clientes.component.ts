@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Cliente } from 'src/app/modelo/cliente.model';
 import { ClienteServicio } from 'src/app/servicios/cliente.service';
 
@@ -17,7 +18,8 @@ export class ClientesComponent implements OnInit {
     saldo: 0
   }
 
-  constructor( private clienteServicio: ClienteServicio) { }
+  constructor( private clienteServicio: ClienteServicio, 
+               private flashMessages: FlashMessagesService ) { }
 
   
   ngOnInit(): void {
@@ -36,6 +38,17 @@ export class ClientesComponent implements OnInit {
       })
     }
     return saldoTotal;
+  }
+
+  agregar({value,valid}:{value:Cliente, valid:boolean}){
+    if(!valid){
+      this.flashMessages.show('Por favor llena el formulario correctamente', {
+        cssClass:'alert-danger', timeout: 4000
+      });
+    }
+    else{
+      //Agregar el nuevo Cliente
+    }
   }
 
 }
