@@ -10,6 +10,12 @@ import { ClienteServicio } from 'src/app/servicios/cliente.service';
 export class ClientesComponent implements OnInit {
 
   clientes!: Cliente [];
+  cliente: Cliente = {
+    nombre: '',
+    apellido: '',
+    email:'',
+    saldo: 0
+  }
 
   constructor( private clienteServicio: ClienteServicio) { }
 
