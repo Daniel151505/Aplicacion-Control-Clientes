@@ -127,7 +127,20 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input 
-                  
+                    #email="ngModel" 
+                    [(ngModel)]="cliente.email"
+                    [ngClass]="{'is-invalid': email.errors && email.touched}" 
+                    required
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    type="text"
+                    name="email" 
+                    class="form-control">
+                    <div [hidden]="!email.errors?.required" class="invalid-feedback">
+                        Email requerido
+                    </div>
+                    <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+                        Email no es valido
+                   </div>
                 </div>
 
                 <div class="form-group">
