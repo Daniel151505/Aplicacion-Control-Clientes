@@ -53,7 +53,7 @@
                     <div class="card-body">
                         <h1>Saldo Total</h1>
                         <h4 class="display-4">
-                            {{getSaldoTotal() | currency:'Peru' : 's/' }}
+                            {{-getSaldoTotal() | currency:'Peru' : 's/' }}
                         </h4>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button #botonCerrar type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <flash-messages></flash-messages>
@@ -150,7 +150,7 @@
                     [(ngModel)]="cliente.saldo"
                     [ngClass]="{'is-invalid': saldo.errors && saldo.touched}" 
                     required
-                    type="text"
+                    type="number"
                     name="saldo" 
                     class="form-control">
                     <div [hidden]="!saldo.errors?.required" class="invalid-feedback">
