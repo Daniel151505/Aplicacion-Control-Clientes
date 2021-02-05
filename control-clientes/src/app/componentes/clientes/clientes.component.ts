@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FlashMessagesService } from 'angular2-flash-messages';
-import { Cliente } from 'src/app/modelo/cliente.model';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ClienteServicio } from 'src/app/servicios/cliente.service';
+import { Cliente } from 'src/app/modelo/cliente.model';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-clientes',
@@ -10,23 +11,28 @@ import { ClienteServicio } from 'src/app/servicios/cliente.service';
 })
 export class ClientesComponent implements OnInit {
 
-  clientes!: Cliente [];
-  cliente: Cliente = {
+  clientes?: Cliente[];
+  cliente: Cliente ={
     nombre: '',
     apellido: '',
-    email:'',
+    email: '',
     saldo: 0
   }
-
-  constructor( private clienteServicio: ClienteServicio, 
-               private flashMessages: FlashMessagesService ) { }
-
   
-  ngOnInit(): void {
-    this.clienteServicio.getClientes().subscribe(
-     clientes => {
-       this.clientes = clientes;
-     }
+  @ViewChild("clienteForm") clienteForm!: NgForm;
+
+  @ViewChild("botonCerrar") botonCerrar!: ElementRef;
+
+
+  constructor(private clientesServicio: ClienteServicio,
+              private flashMessages: FlashMessagesService  
+    ) { }
+
+  ngOnInit() {
+    this.clientesServicio.getClientes().subscribe(
+      clientes => {
+        this.clientes = clientes;
+      }
     )
   }
 
@@ -34,22 +40,28 @@ export class ClientesComponent implements OnInit {
     let saldoTotal: number = 0;
     if(this.clientes){
       this.clientes.forEach( cliente =>{
-        saldoTotal += cliente.saldo ;
+        saldoTotal = saldoTotal - cliente.saldo;
       })
     }
     return saldoTotal;
   }
 
-  agregar({value,valid}:{value:Cliente, valid:boolean}){
+  agregar({value, valid}: {value: Cliente, valid: boolean}){
     if(!valid){
       this.flashMessages.show('Por favor llena el formulario correctamente', {
-        cssClass:'alert-danger', timeout: 4000
+        cssClass: 'alert-danger',timeout: 4000
       });
     }
     else{
-      //Agregar el nuevo Cliente
-      this.clienteServicio.agregarCliente(value);
+      //Agregar el nuevo cliente
+      this.clientesServicio.agregarCliente(value);
+      this.clienteForm.resetForm();
+      this.cerrarModal();
     }
+  }
+
+  private cerrarModal(){
+    this.botonCerrar.nativeElement.click();
   }
 
 }
