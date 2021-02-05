@@ -39,6 +39,12 @@ export class EditarClienteComponent implements OnInit {
         cssClass: 'alert-danger', timeout: 4000 
       })
     }
+    else{
+      value.id = this.id
+      // Modificar el cliente
+      this.clientesServicio.modificarCliente(value);
+      this.router.navigate(['/'])
+    }
   }
 
  
