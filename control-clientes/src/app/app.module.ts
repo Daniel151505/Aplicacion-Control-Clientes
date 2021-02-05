@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment} from '../environments/environment';
 import { AngularFireModule} from '@angular/fire'
-import { AngularFirestoreModule} from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth'
 import { FlashMessagesModule } from 'angular2-flash-messages'
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { from } from 'rxjs';
 import { ClienteServicio } from './servicios/cliente.service';
+import { LoginService } from './servicios/login.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { ClienteServicio } from './servicios/cliente.service';
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClienteServicio],
+  providers: [ClienteServicio,
+              LoginService          
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
