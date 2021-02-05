@@ -35,7 +35,7 @@ export class ClienteServicio {
 
     getCliente(id: string){
         this.clienteDoc = this.db.doc<Cliente>(`clientes/${id}`);
-        this.cliente != this.clienteDoc.snapshotChanges().pipe(
+        this.cliente = this.clienteDoc.snapshotChanges().pipe(
             map( accion => {
                 if(accion.payload.exists === false){
                     return null;
@@ -49,6 +49,5 @@ export class ClienteServicio {
         );
         return this.cliente;
     }
-
 
 }
