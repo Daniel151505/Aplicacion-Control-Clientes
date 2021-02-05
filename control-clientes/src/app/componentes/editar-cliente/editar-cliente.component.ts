@@ -11,6 +11,14 @@ import { ClienteServicio } from 'src/app/servicios/cliente.service';
 })
 export class EditarClienteComponent implements OnInit {
 
+  cliente: Cliente ={
+    nombre: '',
+    apellido: '',
+    email: '',
+    saldo: 0
+  }
+
+  id!: string;
 
   constructor(private clientesServicio: ClienteServicio,
     private flashMessages: FlashMessagesService,
@@ -19,6 +27,10 @@ export class EditarClienteComponent implements OnInit {
 ) { }
 
   ngOnInit(): void {
+    this.id= this.route.snapshot.params['id'];
+    this.clientesServicio.getCliente(this.id).subscribe(cliente => {
+      this.cliente = cliente;
+    })
   }
 
 }
