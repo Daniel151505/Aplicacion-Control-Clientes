@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceroComponent implements OnInit {
 
+  isLoggedIn: boolean;
+  loggedInUser: string;
+
   constructor() { }
 
   ngOnInit(): void {
