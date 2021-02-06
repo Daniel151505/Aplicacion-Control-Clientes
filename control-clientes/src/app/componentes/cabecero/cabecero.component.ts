@@ -9,8 +9,8 @@ import { LoginService } from 'src/app/servicios/login.service';
 })
 export class CabeceroComponent implements OnInit {
 
-  isLoggedIn: boolean;
-  loggedInUser: string;
+  isLoggedIn!: boolean;
+  loggedInUser!: string;
 
   constructor(
     private loginSerice: LoginService,
