@@ -11,8 +11,19 @@ export class AuthGuard implements CanActivate {
     ) {
         
     }
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        throw new Error('Method not implemented.');
+
+    canActivate(): Observable<boolean>{
+        return this.afAuth.authState.pipe(
+            map( auth => {
+                if(!auth){
+                    this.router.navigate(['/login']);
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            })
+        )
     }
    
 }
