@@ -28,4 +28,10 @@ export class CabeceroComponent implements OnInit {
     });
   }
 
+  logout(){
+    this.loginService.logout()
+    this.isLoggedIn = false
+    this.router.navigate(['/login'])
+  }
+
 }
