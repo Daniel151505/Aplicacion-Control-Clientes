@@ -21,7 +21,7 @@ export class CabeceroComponent implements OnInit {
     this.loginService.getAuth().subscribe(auth => {
       if(auth){
         this.isLoggedIn = true;
-        this.loggedInUser!= auth.email;
+        this.loggedInUser = auth.email;
       }else{
         this.isLoggedIn=false
       }
