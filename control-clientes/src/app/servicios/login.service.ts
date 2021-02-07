@@ -17,11 +17,9 @@ export class LoginService{
     }
 
     getAuth(){
-        return this.authService.pipe(
-            map(auth => auth)
-        )
-            
-        }
+        return this.authService.authState.pipe(
+            map( auth => auth)
+        );
     }
 
 }
