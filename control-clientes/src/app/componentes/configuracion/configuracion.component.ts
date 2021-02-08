@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Configuracion } from 'src/app/modelo/configuracion.model';
 import { ConfiguracionServicio } from 'src/app/servicios/configuracion.service';
 
 @Component({
@@ -15,6 +16,11 @@ export class ConfiguracionComponent implements OnInit {
               private ConfiguracionServicio: ConfiguracionServicio ) { }
 
   ngOnInit(): void {
+    this.ConfiguracionServicio.getConfiguracion().subscribe(
+      (configuracion: Configuracion) => {
+        this.permitirRegistro!= configuracion.permitirRegistro
+      }
+    )
   }
 
   guardar(){
