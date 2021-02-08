@@ -1,14 +1,27 @@
 import { AngularFireAuth } from "@angular/fire/auth";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate, Router} from "@angular/router";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { ConfiguracionServicio } from "../servicios/configuracion.service";
 
 export class ConfiguracionGuard implements CanActivate {
     
     constructor(
         private router: Router,
-        private afAuth: AngularFireAuth,
         private configuracionServicio: ConfiguracionServicio
-    ) {
-        
+    ) {}
+
+    canActivate(): Observable<boolean>{
+        return this.configuracionServicio.getConfiguracion().pipe(
+            map( configuracion => {
+                if(configuracion.permitirRegistro){
+                    return true;
+                }
+                else{
+                    this.router.navigate(['/login']);
+                    return false;
+                }
+            })
+        );
     }
 }
