@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment} from '../environments/environment';
 import { AngularFireModule} from '@angular/fire'
-import { AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule, SETTINGS} from '@angular/fire/firestore';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth'
 import { FlashMessagesModule } from 'angular2-flash-messages'
 import { FormsModule } from '@angular/forms'
@@ -48,7 +48,8 @@ import { ConfiguracionServicio } from './servicios/configuracion.service';
   providers: [ClienteServicio,
               LoginService,
               AuthGuard,
-              ConfiguracionServicio      
+              ConfiguracionServicio,
+              {provide: SETTINGS, useValue:{}}      
   ],
   bootstrap: [AppComponent]
 })
