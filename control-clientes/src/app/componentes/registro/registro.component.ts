@@ -27,4 +27,18 @@ export class RegistroComponent implements OnInit {
 
   }
 
+  registro(){
+
+    this.loginService.registrarse(this.email, this.password)
+    .then ( res => {
+      this.router.navigate(['/'])
+    })
+    .catch(error => {
+      this.flashMessages.show(error.message,{
+        cssClass: 'alert-danger', timeout: 400
+      })
+    })
+
+  }
+
 }
