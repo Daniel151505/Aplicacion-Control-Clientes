@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Configuracion } from 'src/app/modelo/configuracion.model';
 import { ConfiguracionServicio } from 'src/app/servicios/configuracion.service';
@@ -8,6 +8,7 @@ import { ConfiguracionServicio } from 'src/app/servicios/configuracion.service';
   templateUrl: './configuracion.component.html',
   styleUrls: ['./configuracion.component.css']
 })
+@Injectable()
 export class ConfiguracionComponent implements OnInit {
 
   permitirRegistro = false;
