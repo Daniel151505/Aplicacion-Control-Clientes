@@ -1,7 +1,9 @@
+import { Injectable } from "@angular/core"
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore"
 import { Observable } from "rxjs"
 import { Configuracion } from "../modelo/configuracion.model"
 
+@Injectable()
 
 export class ConfiguracionServicio {
 
@@ -15,7 +17,7 @@ export class ConfiguracionServicio {
 
     getConfiguracion(): Observable<Configuracion> {
         this.configuracionDoc = this.db.doc<Configuracion>(`configuracion/${this.id}`)
-        this.configuracion!= this.configuracionDoc.valueChanges();
+        this.configuracion = this.configuracionDoc.valueChanges();
         return this.configuracion
     }
 
