@@ -24,7 +24,9 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   guardar(){
-
+    let configuracion = {permitirRegistro: this.permitirRegistro}
+    this.ConfiguracionServicio.modificarConfiguracion(configuracion);
+    this.router.navigate(['/'])
   }
 
 }
