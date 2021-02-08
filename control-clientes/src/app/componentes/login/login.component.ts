@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { LoginService } from 'src/app/servicios/login.service';
 
+@Injectable()
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

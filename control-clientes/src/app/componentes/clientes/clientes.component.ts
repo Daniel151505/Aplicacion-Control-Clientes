@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Injectable } from '@angular/core';
 import { ClienteServicio } from 'src/app/servicios/cliente.service';
 import { Cliente } from 'src/app/modelo/cliente.model';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { NgForm } from '@angular/forms';
-
+@Injectable()
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
@@ -23,6 +23,7 @@ export class ClientesComponent implements OnInit {
 
   @ViewChild("botonCerrar") botonCerrar!: ElementRef;
 
+  
 
   constructor(private clientesServicio: ClienteServicio,
               private flashMessages: FlashMessagesService  
