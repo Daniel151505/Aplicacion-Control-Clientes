@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracionComponent implements OnInit {
 
+  permitirRegistro = false;
+
   constructor() { }
 
   ngOnInit(): void {
