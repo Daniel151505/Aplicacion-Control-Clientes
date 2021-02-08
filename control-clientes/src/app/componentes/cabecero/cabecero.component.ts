@@ -12,7 +12,6 @@ export class CabeceroComponent implements OnInit {
 
   isLoggedIn!: boolean;
   loggedInUser!: string;
-  mostrarRegistro!: boolean;
   permitirRegistro!: boolean;
 
   constructor(
@@ -30,7 +29,12 @@ export class CabeceroComponent implements OnInit {
         this.isLoggedIn=false
       }
     });
-  }z
+
+    this.ConfiguracionServicio.getConfiguracion().subscribe(configuracion =>{
+      this.permitirRegistro = configuracion.permitirRegistro
+    })
+
+  }
 
   logout(){
     this.loginService.logout()
