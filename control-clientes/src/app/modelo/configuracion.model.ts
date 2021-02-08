@@ -1,4 +1,4 @@
-export interface configuracion {
+export interface Configuracion {
 
     permitirRegistro?: Boolean
 
