@@ -21,6 +21,7 @@ import { from } from 'rxjs';
 import { ClienteServicio } from './servicios/cliente.service';
 import { LoginService } from './servicios/login.service';
 import { AuthGuard } from './guardianes/auth.guard';
+import { ConfiguracionServicio } from './servicios/configuracion.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AuthGuard } from './guardianes/auth.guard';
   ],
   providers: [ClienteServicio,
               LoginService,
-              AuthGuard       
+              AuthGuard,
+              ConfiguracionServicio      
   ],
   bootstrap: [AppComponent]
 })
