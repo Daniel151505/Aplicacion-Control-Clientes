@@ -19,4 +19,9 @@ export class ConfiguracionServicio {
         return this.configuracion
     }
 
+    modificarConfiguracion(configuracion: Configuracion){
+        this.configuracionDoc = this.db.doc<Configuracion>(`configuracion/${this.id}`)
+        this.configuracionDoc.update(configuracion)
+    }
+
 }
