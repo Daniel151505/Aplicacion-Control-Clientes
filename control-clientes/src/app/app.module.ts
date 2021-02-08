@@ -23,6 +23,7 @@ import { LoginService } from './servicios/login.service';
 import { AuthGuard } from './guardianes/auth.guard';
 import { ConfiguracionServicio } from './servicios/configuracion.service';
 import '@angular/platform-browser-dynamic';
+import { ConfiguracionGuard } from './guardianes/configuracion.guard';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import '@angular/platform-browser-dynamic';
               LoginService,
               AuthGuard,
               ConfiguracionServicio,
-              {provide: SETTINGS, useValue:{}}      
+              {provide: SETTINGS, useValue:{}},
+              ConfiguracionGuard
   ],
   bootstrap: [AppComponent]
 })
