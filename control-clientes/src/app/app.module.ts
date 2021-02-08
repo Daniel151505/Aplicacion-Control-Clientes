@@ -22,6 +22,7 @@ import { ClienteServicio } from './servicios/cliente.service';
 import { LoginService } from './servicios/login.service';
 import { AuthGuard } from './guardianes/auth.guard';
 import { ConfiguracionServicio } from './servicios/configuracion.service';
+import '@angular/platform-browser-dynamic';
 
 @NgModule({
   declarations: [
