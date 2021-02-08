@@ -11,8 +11,8 @@ export class CabeceroComponent implements OnInit {
 
   isLoggedIn!: boolean;
   loggedInUser!: string;
-  mostrarRegistro: boolean;
-  permitirRegistro: boolean;
+  mostrarRegistro!: boolean;
+  permitirRegistro!: boolean;
 
   constructor(
     private loginService: LoginService,
