@@ -5,7 +5,7 @@
 
 https://control-clientes-1.web.app/login
 
-# Ingresa a la Aplicación Web con los siguientes usuarios
+# Ingresa a la Aplicación Web con el siguiente usuario
 
 Usuario: prueba@gmail.com
 Contraseña usuario123
