@@ -1,5 +1,5 @@
 # Aplicacion-Control-Clientes
-
+Aplicación web utilizando el framework Angular
 
 # Visualiza la Aplicación Web
 
